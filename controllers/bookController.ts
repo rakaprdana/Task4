@@ -1,6 +1,5 @@
-// controllers/bookController.ts
 import { Request, Response, NextFunction } from "express";
-import Book from "../models/book"; // Pastikan Book sudah di-definisikan dengan tipe TypeScript
+import Book from "../models/book";
 
 // Tambah buku baru ke MongoDB
 export const addBook = async (req: Request, res: Response): Promise<void> => {
@@ -23,7 +22,7 @@ export const getAllBooks = async (
     const books = await Book.find();
     res.json(books);
   } catch (error) {
-    res.status(500).json({ message: "Error retrieving books", error });
+    res.status(500).json({ message: "Error retrieving books: ", error });
   }
 };
 
