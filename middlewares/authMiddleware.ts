@@ -1,7 +1,7 @@
-import { NextFunction, Request } from "express";
+import { NextFunction, Request, Response } from "express";
 import { Session } from "express-session";
 
-const authMiddleware = (req: Request, res: any, next: NextFunction) => {
+const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
   if (req.session.loggedIn) {
     next();
   } else {
